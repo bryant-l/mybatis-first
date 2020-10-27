@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.work.bryant.mapper.IUserMapper">
+    <resultMap id="ResultMap" type="com.work.bryant.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="sex" column="sex"/>
+        <result property="address" column="address"/>
+        <result property="hobbies" column="hobbies"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+    <select id="selectAll" resultMap="ResultMap">
+        select id,username,password,sex,address,hobbies,is_delete
+        from user
+        where is_delete=#{is_delete}
+    </select>
+</mapper>
